@@ -1,14 +1,24 @@
 #!/usr/bin/python2.7
 """Use Python 2.7 for this project"""
 import sys
+import csv
 
+reader = csv.reader(sys.stdin)
 
-for input in sys.stdin:
-    input = input.strip()
-    fields = input.split(",")
+try:
+    next(reader)
+except StopIteration:
+    sys.exit()
 
-    if len(fields) >= 3:
-        id = fields[0]
-        company = fields[1]
-        total_yearly_compensation = fields[3]
-        print "{}\t{},{}".format(id, company, total_yearly_compensation)
+for row in reader:
+    try:
+        record_id = row[0].strip()
+        company = row[1].strip()
+        compensation = row[4].strip()
+
+        int(compensation) 
+
+        print(f"{record_id}\t{company},{compensation}")
+
+    except (IndexError, ValueError):
+        continue
