@@ -1,5 +1,5 @@
-#!/usr/bin/python2.7
-"""Use Python 2.7 for this project"""
+#!/usr/bin/python
+"""documentation"""
 import sys
 import csv
 
